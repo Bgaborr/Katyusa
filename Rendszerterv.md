@@ -119,7 +119,7 @@ Szerver (Host) gép: Az adatbázis rendszer és a háttérfolyamatokat ellátó 
 
 ### Webszerver
 
--XAMPP.
+- XAMPP
 
 ### Adatbázis rendszer
 
