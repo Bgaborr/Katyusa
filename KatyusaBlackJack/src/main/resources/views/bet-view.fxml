@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: green;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.katyusablackjack.katyusablackjack.BetController">
+            fx:controller="org.controllers.BetController">
    <children>
       <Label fx:id="totalLabel" layoutX="65.0" layoutY="24.0" text="Össz tét: 0" textFill="#ff0202">
          <font>

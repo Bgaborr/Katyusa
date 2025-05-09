@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.katyusablackjack.katyusablackjack.SceneController">
+<AnchorPane prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.SceneController">
    <children>
       <WebView fx:id="webView" layoutX="10.0" layoutY="82.0" prefHeight="556.0" prefWidth="480.0" />
       <Button layoutX="207.0" layoutY="668.0" mnemonicParsing="false" onAction="#switchToHelloView" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: gray;" text="Vissza" textFill="#ffd000" textOverrun="WORD_ELLIPSIS">

@@ -1,4 +1,4 @@
-package org.katyusablackjack.katyusablackjack;
+package org.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

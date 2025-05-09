@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #ffe6cc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.katyusablackjack.katyusablackjack.SceneController">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #ffe6cc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.SceneController">
    <children>
       <TextField layoutX="31.0" layoutY="213.0" prefHeight="42.0" prefWidth="330.0" />
       <TextField layoutX="30.0" layoutY="297.0" prefHeight="42.0" prefWidth="330.0" />
