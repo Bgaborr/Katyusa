@@ -20,7 +20,7 @@ public class SceneController {
     private Parent root;
 
     public void switchToRegistView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/regist-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/regist-view.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Regisztráció");
@@ -35,7 +35,7 @@ public class SceneController {
     }
 
     public void switchToLoginView(ActionEvent event) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("/views/login-view.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/login-view.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Bejelentkezés");
@@ -50,14 +50,14 @@ public class SceneController {
     }
 
     public void switchToRulesView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/rules-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/rules-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
     public void switchToHelloView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/main-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/main-view.fxml"));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

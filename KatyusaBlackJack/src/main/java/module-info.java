@@ -2,6 +2,7 @@ module katyusablackjack.katyusablackjack {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.sql;
 
     exports org.main;
     opens org.main to javafx.fxml;
