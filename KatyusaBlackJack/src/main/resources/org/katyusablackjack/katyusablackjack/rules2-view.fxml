@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.katyusablackjack.katyusablackjack.SceneController">
+   <children>
+      <WebView fx:id="webView" layoutX="10.0" layoutY="82.0" prefHeight="556.0" prefWidth="480.0" />
+      <Button layoutX="207.0" layoutY="668.0" mnemonicParsing="false" onAction="#switchToHelloView" prefHeight="29.0" prefWidth="85.0" style="-fx-background-color: gray;" text="Vissza" textFill="#ffd000" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Label layoutX="52.0" layoutY="14.0" lineSpacing="1.0" prefHeight="55.0" prefWidth="396.0" text="Black Jack Játékszabály" textFill="#ffd000" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

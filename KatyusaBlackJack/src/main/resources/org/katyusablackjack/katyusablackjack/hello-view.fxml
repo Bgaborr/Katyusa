@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.katyusablackjack.katyusablackjack.SceneController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="79.0" lineSpacing="1.0" prefHeight="116.0" prefWidth="462.0" text="Black Jack" textAlignment="CENTER" underline="true">
+         <textFill>
+            <LinearGradient endX="1.0" startX="0.3446969344760433">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9263157844543457" green="0.8511812686920166" blue="0.17497076094150543" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="Century" size="83.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="308.0" lineSpacing="20.0" mnemonicParsing="false" onAction="#switchToLoginView" prefHeight="64.0" prefWidth="141.0" style="-fx-background-color: gray;" text="Játék kezdése" textFill="#d4af37">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="179.0" layoutY="473.0" mnemonicParsing="false" onAction="#switchToRulesView" prefHeight="64.0" prefWidth="141.0" style="-fx-background-color: grey;" text="Szabályok" textFill="#d4af37">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane layoutX="-181.0" layoutY="141.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+      <Label layoutY="694.0" text="Készítők: Balla Gábor, Takács Márk" textFill="WHITE">
+         <font>
+            <Font name="Century" size="19.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="178.0" layoutY="387.0" lineSpacing="20.0" mnemonicParsing="false" onAction="#switchToRegistView" prefHeight="64.0" prefWidth="141.0" style="-fx-background-color: gray;" text=" Regisztráció" textFill="#d4af37">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
