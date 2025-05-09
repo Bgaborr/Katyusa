@@ -36,7 +36,7 @@ A játékos a grafikus felületen keresztül tud kártyát húzni vagy megállni
 - 04.13. Alap prototípus elkészítése
 - 05.02. Végleges prototípus elkészítése
 - 05.10. Tesztelés
-- 05.07. Bemutatás és átadás
+- 05.14. Bemutatás és átadás
 
 ## 3. Üzleti folyamatok modellje
 

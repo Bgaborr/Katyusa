@@ -19,8 +19,8 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
-    public void switchToRegistView(ActionEvent event)throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("regist-view.fxml"));
+    public void switchToRegistView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("regist-view.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Regisztráció");
@@ -34,7 +34,7 @@ public class SceneController {
         stage.showAndWait();
     }
 
-    public void switchToLoginView(ActionEvent event)throws IOException{
+    public void switchToLoginView(ActionEvent event) throws IOException{
         Parent root= FXMLLoader.load(getClass().getResource("login-view.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -49,17 +49,17 @@ public class SceneController {
         stage.showAndWait();
     }
 
-    public void switchToRulesView(ActionEvent event)throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("rules2-view.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene= new Scene(root);
+    public void switchToRulesView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("rules2-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToHelloView(ActionEvent event)throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene= new Scene(root);
+    public void switchToHelloView(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
