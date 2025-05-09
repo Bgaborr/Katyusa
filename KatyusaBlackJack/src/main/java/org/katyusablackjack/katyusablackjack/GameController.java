@@ -20,7 +20,7 @@ public class GameController {
     public Label betLabel;
 
     public void showBetView(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("bet-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/bet-view.fxml"));
         Parent root = loader.load();
 
         BetController betController = loader.getController();

@@ -30,7 +30,7 @@
       </Button>
       <ImageView fitHeight="97.0" fitWidth="59.0" layoutX="29.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../image/pakli.png" />
+            <Image url="@../image/pakli.png" />
          </image></ImageView>
       <Label fx:id="betLabel" layoutX="144.0" layoutY="588.0" prefHeight="34.0" prefWidth="212.0" text="Tét: 0">
          <font>

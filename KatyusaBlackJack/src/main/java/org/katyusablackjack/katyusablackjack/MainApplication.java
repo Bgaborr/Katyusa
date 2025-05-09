@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class BlackJackApplication extends Application {
+public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/game-view.fxml"));
         Parent root = loader.load();
 
         stage.setScene(new Scene(root, 500, 720));
