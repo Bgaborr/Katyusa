@@ -18,21 +18,21 @@ import org.database.UserDAO;
 import org.models.User;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    @FXML private TextField usernameField;
-    @FXML private PasswordField passwordField;
-    @FXML private TextField emailField;
-    @FXML private Button registerButton;
-    public void switchToRegistView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/view/regist-view.fxml"));
+    public void switchToRegistView(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/regist-view.fxml"));
+        Parent root = loader.load();
+        UserController userController = loader.getController();
         Stage stage = new Stage();
+        userController.setStage(stage);
         stage.setScene(new Scene(root));
         stage.setTitle("Regisztráció");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/image/bj.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
         stage.initModality(Modality.WINDOW_MODAL);
         Stage parentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.initOwner(parentStage);
@@ -43,8 +43,14 @@ public class SceneController {
     }
 
     public void switchToLoginView(ActionEvent event) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("/view/login-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login-view.fxml"));
+        Parent root = loader.load();
+
+        LoginController loginController = loader.getController();
+
         Stage stage = new Stage();
+        loginController.setStage(stage);
+
         stage.setScene(new Scene(root));
         stage.setTitle("Bejelentkezés");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/image/bj.png")));
@@ -58,14 +64,28 @@ public class SceneController {
     }
 
     public void switchToRulesView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/view/rules-view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/rules-view.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToGameView(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/game-view.fxml"));
+        Parent root = loader.load();
+
+        stage.setScene(new Scene(root, 500, 720));
+        stage.setTitle("Black Jack");
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
+        stage.setResizable(false);
+        stage.setX(100);
+        stage.setY(50);
+        stage.show();
+    }
+
     public void switchToHelloView(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/view/main-view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/main-view.fxml")));
         stage =(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -196,24 +216,4 @@ public class SceneController {
         }
     }
 
-    @FXML
-    public void register(ActionEvent event) throws IOException {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        String email = emailField.getText();
-
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-
-        UserDAO userDAO = new UserDAO();
-        boolean success = userDAO.register(user);
-
-        if (success) {
-            System.out.println("Sikeres regisztráció!");
-        } else {
-            System.out.println("Hiba a regisztrációnál!");
-        }
-    }
 }

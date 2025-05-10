@@ -1,7 +1,6 @@
 package org.database;
 
 import org.models.User;
-
 import java.sql.*;
 import java.security.MessageDigest;
 

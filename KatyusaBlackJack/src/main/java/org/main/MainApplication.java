@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainApplication extends Application {
     @Override
@@ -17,7 +18,7 @@ public class MainApplication extends Application {
 
         stage.setScene(new Scene(root, 500, 720));
         stage.setTitle("Black Jack");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/image/bj.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
         stage.setResizable(false);
         stage.setX(100);
         stage.setY(50);
