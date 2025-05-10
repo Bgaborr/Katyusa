@@ -7,10 +7,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.database.UserDAO;
+import org.models.User;
 
 import java.io.IOException;
 
@@ -18,7 +23,10 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    @FXML private TextField usernameField;
+    @FXML private PasswordField passwordField;
+    @FXML private TextField emailField;
+    @FXML private Button registerButton;
     public void switchToRegistView(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/view/regist-view.fxml"));
         Stage stage = new Stage();
@@ -185,6 +193,27 @@ public class SceneController {
                          </body>
                          </html>
        \s""");
+        }
+    }
+
+    @FXML
+    public void register(ActionEvent event) throws IOException {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String email = emailField.getText();
+
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+
+        UserDAO userDAO = new UserDAO();
+        boolean success = userDAO.register(user);
+
+        if (success) {
+            System.out.println("Sikeres regisztráció!");
+        } else {
+            System.out.println("Hiba a regisztrációnál!");
         }
     }
 }

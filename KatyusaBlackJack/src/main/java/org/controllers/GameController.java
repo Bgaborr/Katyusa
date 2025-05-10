@@ -12,6 +12,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class GameController {
     @FXML
@@ -27,7 +28,7 @@ public class GameController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Tét");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/image/bj.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(((Node) event.getSource()).getScene().getWindow());
         stage.setX(200);
