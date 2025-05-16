@@ -13,17 +13,19 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.GameController">
    <children>
-      <Button layoutX="88.0" layoutY="640.0" mnemonicParsing="false" onAction="#showBetView" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Tét" textAlignment="CENTER" textFill="#ffbe00">
+      <HBox fx:id="playerCardsBox" layoutX="124.0" layoutY="457.0" prefHeight="58.0" prefWidth="275.0" spacing="10" />
+      <HBox fx:id="dealerCardsBox" layoutX="124.0" layoutY="75.0" prefHeight="49.0" prefWidth="275.0" spacing="10" />
+      <Button layoutX="89.0" layoutY="586.0" mnemonicParsing="false" onAction="#showBetView" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Tét" textAlignment="CENTER" textFill="#ffbe00">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="203.0" layoutY="640.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Húzás" textAlignment="CENTER" textFill="#ffbe00">
+      <Button fx:id="draw_btn" disable="true" layoutX="204.0" layoutY="586.0" mnemonicParsing="false" onAction="#onPlayerDraw" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Húzás" textAlignment="CENTER" textFill="#ffbe00">
          <font>
             <Font name="Century" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="316.0" layoutY="640.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Megállás" textAlignment="CENTER" textFill="#ffbe00">
+      <Button fx:id="stop_btn" disable="true" layoutX="317.0" layoutY="586.0" mnemonicParsing="false" onAction="#onPlayerStand" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Megállás" textAlignment="CENTER" textFill="#ffbe00">
          <font>
             <Font name="Century" size="17.0" />
          </font>
@@ -32,7 +34,12 @@
          <image>
             <Image url="@../image/pakli.png" />
          </image></ImageView>
-      <Label fx:id="betLabel" layoutX="144.0" layoutY="588.0" prefHeight="34.0" prefWidth="212.0" text="Tét: 0">
+      <Label fx:id="betErrorLabel" layoutX="119.0" layoutY="509.0" prefHeight="34.0" prefWidth="262.0" textFill="RED">
+         <font>
+            <Font name="Century" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="betLabel" layoutX="145.0" layoutY="534.0" prefHeight="34.0" prefWidth="212.0" text="Tét: 0">
          <font>
             <Font name="Century" size="26.0" />
          </font>
@@ -63,7 +70,10 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <HBox fx:id="playerCardsBox" layoutX="50" layoutY="300" spacing="10"/>
-      <HBox fx:id="dealerCardsBox" layoutX="50" layoutY="100" spacing="10"/>
+      <Button fx:id="startGame" layoutX="161.0" layoutY="652.0" mnemonicParsing="false" onAction="#starGame" prefHeight="42.0" prefWidth="177.0" style="-fx-background-color: gray;" text="Játék kezdése" textAlignment="CENTER" textFill="#ffbe00">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
