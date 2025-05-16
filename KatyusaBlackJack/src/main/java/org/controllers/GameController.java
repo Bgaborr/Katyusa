@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -18,6 +19,7 @@ import org.models.Card;
 import org.models.GameModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,6 +45,9 @@ public class GameController implements Observer {
 
     @FXML
     private HBox dealerCardsBox;
+
+    @FXML
+    private Label dealerLabel;
 
     private final GameModel gameModel = new GameModel();
 
@@ -77,6 +82,7 @@ public class GameController implements Observer {
 
     public void updateBet(int amount) {
         betLabel.setText("Tét: " + amount);
+        betErrorLabel.setText("");
     }
     @FXML
     public void starGame(){
@@ -84,11 +90,12 @@ public class GameController implements Observer {
             betErrorLabel.setText("Kezdés előtt rakj tétet!");
         }
         else {
-        stop_btn.setDisable(false);
-        draw_btn.setDisable(false);
-        gameModel.drawCardForPlayer();
-        gameModel.drawCardForPlayer();
-        gameModel.drawCardForDealer();
+            dealerLabel.setText("Osztó");
+            stop_btn.setDisable(false);
+            draw_btn.setDisable(false);
+            gameModel.drawCardForPlayer();
+            gameModel.drawCardForPlayer();
+            gameModel.drawCardForDealer();
         }
     }
     @FXML
@@ -135,18 +142,15 @@ public class GameController implements Observer {
 
         showAlert("Eredmény", result);
         endGame();
+
     }
 
     private void endGame() {
         gameModel.resetGame();
         playerCardsBox.getChildren().clear();
         dealerCardsBox.getChildren().clear();
-
-        // kezdőlapok újrahúzása
-        gameModel.drawCardForPlayer();
-        gameModel.drawCardForPlayer();
-        gameModel.drawCardForDealer();
-        gameModel.drawCardForDealer();
+        betLabel.setText("Tét: 0");
+        starGame();
     }
 
     private int calculateHandValue(List<Card> cards) {
@@ -188,10 +192,29 @@ public class GameController implements Observer {
             Text cardText = new Text(card.toString());
             cardText.setStyle("-fx-font-size: 20px; -fx-fill: white;");
 
+            String value = card.getValue().toLowerCase();
+            String suit = card.getSuit().toLowerCase();
+            switch (suit){
+                case "♠": suit="spades";
+                case "♥": suit="hearts";
+                case "♦": suit="diamonds";
+                case "♣": suit="clubs";
+            }
+            String fileName = value+"_of_"+suit+".png";
+            System.out.println(fileName);
+            String path = "/cards/" + fileName;
+            URL imageUrl = getClass().getResource(path);
+
+
+            Image image = new Image(imageUrl.toExternalForm());
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(80);
+            imageView.setPreserveRatio(true);
+
             if ("player".equals(target)) {
-                playerCardsBox.getChildren().add(cardText);
+                playerCardsBox.getChildren().add(imageView);
             } else if ("dealer".equals(target)) {
-                dealerCardsBox.getChildren().add(cardText);
+                dealerCardsBox.getChildren().add(imageView);
             }
         }
     }

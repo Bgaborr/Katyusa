@@ -13,8 +13,8 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.GameController">
    <children>
-      <HBox fx:id="playerCardsBox" layoutX="124.0" layoutY="457.0" prefHeight="58.0" prefWidth="275.0" spacing="10" />
-      <HBox fx:id="dealerCardsBox" layoutX="124.0" layoutY="75.0" prefHeight="49.0" prefWidth="275.0" spacing="10" />
+      <HBox fx:id="playerCardsBox" layoutX="104.0" layoutY="391.0" prefHeight="88.0" prefWidth="290.0" spacing="10" />
+      <HBox fx:id="dealerCardsBox" layoutX="111.0" layoutY="113.0" prefHeight="88.0" prefWidth="278.0" spacing="10" />
       <Button layoutX="89.0" layoutY="586.0" mnemonicParsing="false" onAction="#showBetView" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Tét" textAlignment="CENTER" textFill="#ffbe00">
          <font>
             <Font name="Century" size="18.0" />
@@ -75,5 +75,10 @@
             <Font name="Century" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="dealerLabel" alignment="CENTER" layoutX="160.0" layoutY="45.0" prefHeight="51.0" prefWidth="178.0" textAlignment="CENTER" textFill="#0077ff">
+         <font>
+            <Font name="Century" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
