@@ -55,7 +55,7 @@
             <Font name="Century" size="26.0" />
          </font>
       </Button>
-      <Label fx:id="errorLabel" alignment="CENTER" layoutX="35.0" layoutY="313.0" prefHeight="64.0" prefWidth="330.0" text="Label" textAlignment="CENTER" textFill="RED" wrapText="true">
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="35.0" layoutY="313.0" prefHeight="64.0" prefWidth="330.0" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
             <Font name="Century" size="20.0" />
          </font>
