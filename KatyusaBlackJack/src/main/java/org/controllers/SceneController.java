@@ -42,25 +42,29 @@ public class SceneController {
         stage.showAndWait();
     }
 
-    public void switchToLoginView(ActionEvent event) throws IOException{
+    @FXML
+    public void switchToLoginView(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login-view.fxml"));
         Parent root = loader.load();
 
         LoginController loginController = loader.getController();
 
-        Stage stage = new Stage();
-        loginController.setStage(stage);
+        Stage loginStage = new Stage();
+        loginController.setStage(loginStage);
 
-        stage.setScene(new Scene(root));
-        stage.setTitle("Bejelentkezés");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/image/bj.png")));
-        stage.initModality(Modality.WINDOW_MODAL);
-        Stage parentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.initOwner(parentStage);
-        stage.setX(100);
-        stage.setY(50);
-        stage.setResizable(false);
-        stage.showAndWait();
+        // Itt kell kinyerni a fő ablakot
+        Stage mainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        loginController.setMainStage(mainStage);
+
+        loginStage.setScene(new Scene(root));
+        loginStage.setTitle("Bejelentkezés");
+        loginStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
+        loginStage.initModality(Modality.WINDOW_MODAL);
+        loginStage.initOwner(mainStage);
+        loginStage.setX(100);
+        loginStage.setY(50);
+        loginStage.setResizable(false);
+        loginStage.showAndWait();
     }
 
     public void switchToRulesView(ActionEvent event) throws IOException{
@@ -75,10 +79,11 @@ public class SceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/game-view.fxml"));
         Parent root = loader.load();
 
-        stage.setScene(new Scene(root, 500, 720));
+        Scene gameScene = new Scene(root);
         stage.setTitle("Black Jack");
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/bj.png"))));
         stage.setResizable(false);
+        stage.setScene(gameScene);
         stage.setX(100);
         stage.setY(50);
         stage.show();

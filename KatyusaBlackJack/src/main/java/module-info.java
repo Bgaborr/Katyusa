@@ -3,6 +3,7 @@ module katyusablackjack.katyusablackjack {
     requires javafx.fxml;
     requires javafx.web;
     requires java.sql;
+    requires java.desktop;
 
     exports org.main;
     opens org.main to javafx.fxml;

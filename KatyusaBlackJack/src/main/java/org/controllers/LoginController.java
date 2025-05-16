@@ -1,6 +1,7 @@
 package org.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -8,15 +9,20 @@ import javafx.stage.Stage;
 import org.database.UserDAO;
 import org.models.User;
 
+import javax.swing.plaf.basic.BasicButtonUI;
+
 public class LoginController {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
+    @FXML private Button login_btn;
     @FXML   private Label errorLabel;
     private Stage stage;
     private SceneController sceneController = new SceneController();
     @FXML
     private void initialize() {
     }
+    private Stage mainStage;
+    private Stage loginStage;
 
     @FXML
     private void login() {
@@ -29,7 +35,11 @@ public class LoginController {
 
             if (user != null) {
                 System.out.println("Sikeres bejelentkezés!");
-                sceneController.switchToGameView(stage);
+
+                SceneController sceneController = new SceneController();
+                sceneController.switchToGameView(mainStage);
+                loginStage.close();
+
             } else {
                 errorLabel.setText("Hibás felhasználónév vagy jelszó!");
             }
@@ -39,15 +49,17 @@ public class LoginController {
         }
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
     private void closeWindow() {
         if (stage != null) {
             stage.close();
         }
     }
 
+    public void setMainStage(Stage mainStage) {
+        this.mainStage = mainStage;
+    }
 
+    public void setStage(Stage loginStage) {
+        this.loginStage = loginStage;
+    }
 }
