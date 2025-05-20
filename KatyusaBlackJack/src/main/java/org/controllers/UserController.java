@@ -6,20 +6,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.classes.UserValidator;
 import org.database.UserDAO;
 import org.models.User;
+import org.services.ErrorMessageService;
 
 
 public class UserController {
+    private final UserValidator validator;
+    private final UserDAO userDAO;
+    private final ErrorMessageService errorService;
+    private Stage stage;
+
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private TextField emailField;
-    @FXML private Button registerButton;
-    @FXML private Label  errorLabel;
-    private Stage stage;
+    @FXML private Label errorLabel;
 
-    @FXML
-    private void initialize() {
+    // Dependency injection
+    public UserController(UserValidator validator, UserDAO userDAO, ErrorMessageService errorService) {
+        this.validator = validator;
+        this.userDAO = userDAO;
+        this.errorService = errorService;
     }
 
     @FXML
@@ -28,48 +36,28 @@ public class UserController {
         String password = passwordField.getText();
         String email = emailField.getText();
 
-
-        if (!isValidEmail(email)) {
-            errorLabel.setText("Hibás email formátum!");
+        if (!validator.isValidEmail(email)) {
+            errorLabel.setText(errorService.getEmailError());
             return;
         }
 
-        if (!isValidPassword(password)) {
-            errorLabel.setText("A jelszónak legalább 8 karakteresnek kell lennie!");
+        if (!validator.isValidPassword(password)) {
+            errorLabel.setText(errorService.getPasswordError());
             return;
         }
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-
-        UserDAO userDAO = new UserDAO();
-        boolean success = userDAO.register(user);
-
-        if (success) {
-            System.out.println("Sikeres regisztráció!");
+        User user = new User(username, password, email);
+        if (userDAO.register(user)) {
             closeWindow();
-        } else {
-            System.out.println("Hiba a regisztrációnál!");
         }
-    }
-    public boolean isValidEmail(String email) {
-        return email != null && email.matches("^\\S+@\\S+\\.\\S+$");
-    }
-
-    public boolean isValidPassword(String password) {
-        return password != null && password.length() >= 8;
     }
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-
     private void closeWindow() {
-        if (stage != null) {
-            stage.close();
-        }
+        if (stage != null) stage.close();
     }
-
 }
+
+
