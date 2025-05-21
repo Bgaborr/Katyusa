@@ -52,7 +52,6 @@ public class SceneController {
         Stage loginStage = new Stage();
         loginController.setStage(loginStage);
 
-        // Itt kell kinyerni a fő ablakot
         Stage mainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         loginController.setMainStage(mainStage);
 
