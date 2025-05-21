@@ -129,6 +129,8 @@ public class GameController implements Observer {
         gameModel.resetGame();
         playerCardsBox.getChildren().clear();
         dealerCardsBox.getChildren().clear();
+        stop_btn.setDisable(true);
+        draw_btn.setDisable(true);
         betLabel.setText("Tét: 0");
     }
 
