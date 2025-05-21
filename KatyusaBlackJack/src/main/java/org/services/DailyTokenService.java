@@ -21,12 +21,10 @@ public class DailyTokenService {
             LocalDate today = LocalDate.now();
 
             if (token == null) {
-                // Még nincs ilyen rekord — újként beszúrjuk
-                tokenDAO.insertNewToken(userId, 100, today); // pl. 100 zseton jár naponta
+                tokenDAO.insertNewToken(userId, 100, today);
                 Session.setTokens(100);
                 alertService.showAlert("Napi jutalom", "100 zsetont kaptál!");
             } else if (token.getLastDailyClaim() == null || !token.getLastDailyClaim().isEqual(today)) {
-                // Nem ma volt utoljára claimelve
                 int newTokens = token.getTokens() + 100;
                 token.setTokens(newTokens);
                 token.setLastDailyClaim(today);
@@ -34,7 +32,6 @@ public class DailyTokenService {
                 Session.setTokens(newTokens);
                 alertService.showAlert("Napi jutalom", "100 zsetont kaptál!");
             } else {
-                // Már ma claimelte
                 alertService.showAlert("Napi jutalom", "Ma már átvetted a napi jutalmat.");
             }
 

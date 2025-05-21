@@ -9,12 +9,8 @@ public class TokenTest {
 
     @Test
     public void testTokenGettersAndSetters() {
-        Token token = new Token();
-        token.getPlayerId(1);
-        token.setTokens(100);
-        token.setLastDailyClaim(LocalDate.of(2024, 5, 20));
-
-        assertEquals(1, token.getPlayerId());
+        Token token = new Token(1,100,LocalDate.of(2024, 5, 20));
+        assertEquals(1, token.getPlayerId(1));
         assertEquals(100, token.getTokens());
         assertEquals(LocalDate.of(2024, 5, 20), token.getLastDailyClaim());
     }
@@ -24,7 +20,7 @@ public class TokenTest {
         LocalDate date = LocalDate.of(2025, 5, 21);
         Token token = new Token(5, 250, date);
 
-        assertEquals(5, token.getPlayerId());
+        assertEquals(5, token.getPlayerId(1));
         assertEquals(250, token.getTokens());
         assertEquals(date, token.getLastDailyClaim());
     }

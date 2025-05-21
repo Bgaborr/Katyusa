@@ -33,11 +33,4 @@ public class GameLogic {
 
         return value;
     }
-
-    public String evaluateWinner(int playerValue, int dealerValue) {
-        if (playerValue > 21) return "Vesztettél!";
-        if (dealerValue > 21 || playerValue > dealerValue) return "Nyertél!";
-        if (playerValue == dealerValue) return "Döntetlen!";
-        return "Vesztettél!";
-    }
 }

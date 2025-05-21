@@ -13,7 +13,7 @@ public class Token {
         this.lastDailyClaim = lastDailyClaim;
     }
 
-    public int getPlayerId() {
+    public int getPlayerId(int i) {
         return playerId;
     }
 

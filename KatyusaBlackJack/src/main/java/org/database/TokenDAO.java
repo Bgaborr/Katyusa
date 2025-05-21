@@ -36,7 +36,7 @@ public class TokenDAO {
             } else {
                 stmt.setNull(2, Types.DATE);
             }
-            stmt.setInt(3, token.getPlayerId());
+            stmt.setInt(3, token.getPlayerId(1));
             stmt.executeUpdate();
         }
     }

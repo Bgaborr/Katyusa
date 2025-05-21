@@ -4,7 +4,8 @@ module katyusablackjack.katyusablackjack {
     requires javafx.web;
     requires java.sql;
     requires java.desktop;
-
+    exports org.models;
+    exports org.classes;
     exports org.main;
     opens org.main to javafx.fxml;
     exports org.controllers;
