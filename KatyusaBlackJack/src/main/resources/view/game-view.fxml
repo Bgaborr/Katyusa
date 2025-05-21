@@ -80,5 +80,10 @@
             <Font name="Century" size="40.0" />
          </font>
       </Label>
+      <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="42.0" prefWidth="94.0" style="-fx-background-color: gray;" text="Kilépés" textAlignment="CENTER" textFill="#ffbe00">
+         <font>
+            <Font name="Century" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

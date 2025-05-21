@@ -35,6 +35,11 @@ public class LoginController {
 
             if (user != null) {
                 System.out.println("Sikeres bejelentkezés!");
+                org.session.Session.setUser(user);
+
+                org.database.TokenDAO tokenDAO = new org.database.TokenDAO();
+                int tokens = tokenDAO.getTokensByPlayerId(user.getId());
+                org.session.Session.setTokens(tokens);
 
                 SceneController sceneController = new SceneController();
                 sceneController.switchToGameView(mainStage);

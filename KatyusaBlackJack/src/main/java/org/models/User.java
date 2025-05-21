@@ -14,7 +14,6 @@ public class User {
         this.email = email;
     }
 
-    // Getters and setters
     public int getId() {
         return id;
     }
@@ -47,4 +46,3 @@ public class User {
         this.email = email;
     }
 }
-

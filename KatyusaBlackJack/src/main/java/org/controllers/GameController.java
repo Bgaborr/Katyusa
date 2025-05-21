@@ -1,5 +1,6 @@
 package org.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.models.Card;
 import org.models.GameModel;
+import org.session.Session;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,7 +58,6 @@ public class GameController implements Observer {
         gameModel.addObserver(this);
         betLabel.setText("Tét: 0");
         gameModel.resetGame();
-
 
         updateBet(0);
     }
@@ -121,6 +122,17 @@ public class GameController implements Observer {
         }
 
         evaluateGame();
+    }
+
+    @FXML
+    private void onExitButtonClick() {
+        int userId = Session.getUser().getId();
+        int tokens = Session.getTokens();
+
+        ExitHandler handler = new ExitHandler(userId, tokens);
+        handler.handleExit();
+
+        Platform.exit();
     }
 
     private void evaluateGame() {
