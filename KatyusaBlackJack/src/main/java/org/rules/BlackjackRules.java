@@ -1,5 +1,7 @@
 package org.rules;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import org.models.Card;
 import java.util.List;
 
