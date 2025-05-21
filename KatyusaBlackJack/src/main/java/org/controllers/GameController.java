@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.models.Card;
 import org.models.GameModel;
+import org.services.DailyTokenService;
 import org.session.Session;
 import org.rules.BlackjackRules;
 import org.rules.GameResult;
@@ -45,9 +46,12 @@ public class GameController implements Observer {
         gameModel.addObserver(this);
         betLabel.setText("Tét: 0");
         gameModel.resetGame();
-
         updateBet(0);
+
+        DailyTokenService dailyTokenService = new DailyTokenService();
+        dailyTokenService.checkAndClaimDailyToken();
     }
+
 
     public void showBetView(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/bet-view.fxml"));

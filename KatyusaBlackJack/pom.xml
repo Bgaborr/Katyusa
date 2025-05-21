@@ -50,6 +50,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -59,11 +65,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <compilerArgs>
-                        <arg>--add-modules=javafx.controls,javafx.fxml,javafx.web</arg>
-                        <arg>--add-opens=java.base/sun.nio.ch=javafx.graphics</arg>
+                    <compilerArgs>--enable-preview
                         <arg>--add-opens=java.base/sun.misc=ALL-UNNAMED</arg>
                     </compilerArgs>
+                    <source>23</source>
+                    <target>23</target>
                 </configuration>
             </plugin>
             <plugin>

@@ -1,5 +1,4 @@
 
-
 import org.classes.UserValidator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class SimpleUserValidatorTest {
     private final UserValidator validator = new UserValidator();
 
-    // Email tesztek
     @Test
     void emailTests() {
         assertAll("Érvénytelen email címek",
@@ -25,7 +23,6 @@ class SimpleUserValidatorTest {
         );
     }
 
-    // Jelszó tesztek
     @Test
     void passwordTests() {
         assertAll("Érvénytelen jelszavak",
