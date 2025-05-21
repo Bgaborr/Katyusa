@@ -68,8 +68,8 @@
                     <compilerArgs>--enable-preview
                         <arg>--add-opens=java.base/sun.misc=ALL-UNNAMED</arg>
                     </compilerArgs>
-                    <source>23</source>
-                    <target>23</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
             <plugin>

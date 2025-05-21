@@ -13,9 +13,9 @@ import org.services.ErrorMessageService;
 
 
 public class UserController {
-    private final UserValidator validator;
-    private final UserDAO userDAO;
-    private final ErrorMessageService errorService;
+    private UserValidator validator;
+    private  UserDAO userDAO;
+    private  ErrorMessageService errorService;
     private Stage stage;
 
     @FXML private TextField usernameField;
@@ -23,10 +23,35 @@ public class UserController {
     @FXML private TextField emailField;
     @FXML private Label errorLabel;
 
-    // Dependency injection
+    @FXML
+    public void initialize() {
+        if (validator == null) {
+            validator = new UserValidator();
+        }
+        if (userDAO == null) {
+            userDAO = new UserDAO();
+        }
+        if (errorService == null) {
+            errorService = new ErrorMessageService();
+        }
+    }
+
+    public UserController() {
+    }
     public UserController(UserValidator validator, UserDAO userDAO, ErrorMessageService errorService) {
         this.validator = validator;
         this.userDAO = userDAO;
+        this.errorService = errorService;
+    }
+    public void setValidator(UserValidator validator) {
+        this.validator = validator;
+    }
+
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    public void setErrorService(ErrorMessageService errorService) {
         this.errorService = errorService;
     }
 
