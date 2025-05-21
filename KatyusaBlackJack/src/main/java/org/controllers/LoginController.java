@@ -7,7 +7,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.database.UserDAO;
+import org.models.Token;
 import org.models.User;
+import org.database.DatabaseManager;
 
 import javax.swing.plaf.basic.BasicButtonUI;
 
@@ -37,8 +39,9 @@ public class LoginController {
                 System.out.println("Sikeres bejelentkezés!");
                 org.session.Session.setUser(user);
 
-                org.database.TokenDAO tokenDAO = new org.database.TokenDAO();
-                int tokens = tokenDAO.getTokensByPlayerId(user.getId());
+                org.database.TokenDAO tokenDAO = new org.database.TokenDAO(DatabaseManager.getConnection());
+                Token token = tokenDAO.getTokensByPlayerId(user.getId());
+                int tokens = token.getTokens();
                 org.session.Session.setTokens(tokens);
 
                 SceneController sceneController = new SceneController();

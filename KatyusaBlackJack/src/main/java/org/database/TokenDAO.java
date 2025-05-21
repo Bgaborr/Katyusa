@@ -13,7 +13,7 @@ public class TokenDAO {
     }
 
     public Token getTokensByPlayerId(int playerId) throws SQLException {
-        String sql = "SELECT * FROM tokens WHERE id = ?";
+        String sql = "SELECT * FROM user_tokens WHERE id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, playerId);
             ResultSet rs = stmt.executeQuery();
@@ -28,7 +28,7 @@ public class TokenDAO {
     }
 
     public void updateToken(Token token) throws SQLException {
-        String sql = "UPDATE tokens SET tokens = ?, last_daily_claim = ? WHERE id = ?";
+        String sql = "UPDATE user_tokens SET tokens = ?, last_daily_claim = ? WHERE id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, token.getTokens());
             if (token.getLastDailyClaim() != null) {
@@ -42,7 +42,7 @@ public class TokenDAO {
     }
 
     public void insertNewToken(int playerId, int tokens, LocalDate lastDailyClaim) throws SQLException {
-        String sql = "INSERT INTO tokens (id, tokens, last_daily_claim) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user_tokens (id, tokens, last_daily_claim) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, playerId);
             stmt.setInt(2, tokens);

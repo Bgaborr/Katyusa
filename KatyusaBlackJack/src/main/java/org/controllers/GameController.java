@@ -106,7 +106,13 @@ public class GameController implements Observer {
             gameModel.drawCardForDealer();
         }
 
-        evaluateGame();
+        GameResult result = gameRules.evaluateGame(
+                gameModel.getPlayerCards(),
+                gameModel.getDealerCards()
+        );
+
+        alertService.showAlert("Eredmény", result.getMessage());
+        endGame();
     }
 
     @FXML
@@ -119,34 +125,6 @@ public class GameController implements Observer {
 
         Platform.exit();
     }
-
-    private void evaluateGame() {
-        int playerValue = calculateHandValue(gameModel.getPlayerCards());
-        int dealerValue = calculateHandValue(gameModel.getDealerCards());
-
-        String result;
-        if (playerValue > 21) {
-            result = "Vesztettél, túllépted a 21-et!";
-        } else if (dealerValue > 21) {
-            result = "Nyertél, a dealer túllépte a 21-et!";
-        } else if (playerValue > dealerValue) {
-            result = "Nyertél!";
-        } else if (playerValue == dealerValue) {
-            result = "Döntetlen!";
-        } else {
-            result = "Vesztettél!";
-        }
-
-        showAlert("Eredmény", result);
-        GameResult result = gameRules.evaluateGame(
-            gameModel.getPlayerCards(), 
-            gameModel.getDealerCards()
-        );
-        
-        alertService.showAlert("Eredmény", result.getMessage());
-        endGame();
-    }
-
     private void endGame() {
         gameModel.resetGame();
         playerCardsBox.getChildren().clear();
